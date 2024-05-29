@@ -2,17 +2,17 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  const [btnColor, setBtnColor] = React.useState('red');
+  const [btnColor, setBtnColor] = React.useState('medium-violet-red');
   const [btnText, setBtnText] = React.useState('Change to blue');
   const [isDisabled, setIsDisabled] = React.useState(false);
   const className = isDisabled ? 'gray' : btnColor;
 
   const handleChange = () => {
-    if (btnColor === 'red') {
-      setBtnColor('blue');
+    if (btnColor === 'medium-violet-red') {
+      setBtnColor('midnight-blue');
       setBtnText('Change to red');
     } else {
-      setBtnColor('red');
+      setBtnColor('medium-violet-red');
       setBtnText('Change to blue');
     }
   };
