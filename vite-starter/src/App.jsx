@@ -4,6 +4,8 @@ import './App.css';
 function App() {
   const [btnColor, setBtnColor] = React.useState('red');
   const [btnText, setBtnText] = React.useState('Change to blue');
+  const [isDisabled, setIsDisabled] = React.useState(false);
+  const className = isDisabled ? 'gray' : btnColor;
 
   const handleChange = () => {
     if (btnColor === 'red') {
@@ -14,10 +16,17 @@ function App() {
       setBtnText('Change to blue');
     }
   };
+  const handleCheckboxChange = () => {
+    setIsDisabled(!isDisabled);
+  };
 
   return (
     <>
-      <button className={btnColor} onClick={handleChange}>
+      <button
+        className={className}
+        onClick={handleChange}
+        disabled={isDisabled}
+      >
         {btnText}
       </button>
 
@@ -25,6 +34,7 @@ function App() {
         type="checkbox"
         id="disable-button-checkbox"
         defaultChecked={false}
+        onChange={handleCheckboxChange}
       />
       <label htmlFor="disable-button-checkbox">Disable button</label>
     </>
